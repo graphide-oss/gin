@@ -33,7 +33,6 @@ jobs:
     needs: lint
     permissions:
       contents: read
-      id-token: write
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -82,5 +81,4 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v7
         with:
-          use_oidc: true
           flags: ${{ matrix.os }},go-${{ matrix.go }},${{ matrix.test-tags }}
