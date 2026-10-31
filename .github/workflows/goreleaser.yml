@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   goreleaser:
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       - name: Checkout
         uses: actions/checkout@v7

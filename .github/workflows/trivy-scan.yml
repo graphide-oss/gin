@@ -19,7 +19,7 @@ permissions:
 jobs:
   trivy-scan:
     name: Trivy Security Scan
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       - name: Checkout code
         uses: actions/checkout@v7

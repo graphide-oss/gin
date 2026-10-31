@@ -18,7 +18,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
 
     permissions:
       # required for all workflows
