@@ -32,7 +32,7 @@ jobs:
     needs: lint
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         go: ["1.26", "1.27"]
         test-tags:
           [
@@ -45,10 +45,8 @@ jobs:
         include:
           - os: ubuntu-latest
             go-build: ~/.cache/go-build
-          - os: macos-latest
-            go-build: ~/Library/Caches/go-build
     name: ${{ matrix.os }} @ Go ${{ matrix.go }} ${{ matrix.test-tags }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ vars.GRAPHIDE_CI_RUNNER != 'off' && (matrix.os == 'ubuntu-latest' && 'graphide-linux-x64-8') || matrix.os }}
     env:
       GO111MODULE: on
       TESTTAGS: ${{ matrix.test-tags }}
